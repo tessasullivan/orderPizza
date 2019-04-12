@@ -94,42 +94,48 @@ Pizza.prototype.calculateCost = function() {
   return cost;
 }
 
-var pizza1 = new Pizza (
-  size = "small",
-  crust = 'Chicago',
-  sauce = 'pizza',
-  meatToppings = ['Canadian Bacon', 'Sausage'],
-  veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'],
-  cheeseToppings = ['Mozzarella', 'Feta'],
-)
-
-var pizza2 = new Pizza (
-  size = "medium",
-  crust = 'Chicago',
-  sauce = 'pizza',
-  meatToppings = ['Canadian Bacon', 'Sausage'],
-  veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'],
-  cheeseToppings = ['Mozzarella', 'Feta'],
-)
-
-var pizzaCost = pizza1.calculateCost();
+// var pizza1 = new Pizza (
+//   size = "small",
+//   crust = 'Chicago',
+//   sauce = 'pizza',
+//   meatToppings = ['Canadian Bacon', 'Sausage'],
+//   veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'],
+//   cheeseToppings = ['Mozzarella', 'Feta'],
+// )
+//
+// var pizza2 = new Pizza (
+//   size = "medium",
+//   crust = 'Chicago',
+//   sauce = 'pizza',
+//   meatToppings = ['Canadian Bacon', 'Sausage'],
+//   veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'],
+//   cheeseToppings = ['Mozzarella', 'Feta'],
+// )
+//
+// var pizzaCost = pizza1.calculateCost();
 var order = new Order();
-order.addPizza(pizza1);
-order.addPizza(pizza2);
+// order.addPizza(pizza1);
+// order.addPizza(pizza2);
 
 // var foundPizza = order.findPizza(1);
-console.log(order);
+// console.log(order);
 //order.deletePizza(1);
-console.log(order);
 
 ////////////////////////////////////////////
 // User logic
-
+// function displayOrder()
 
 
 $().ready(function() {
+  $('#pizzaOrderForm').submit(function() {
+    event.preventDefault();
+    var size=$('input:radio[name=size]:checked').val();
+    var crust=$('input:radio[name=crust]:checked').val();
+    var sauce=$('input:radio[name=sauce]:checked').val();
 
-  $('button#roll').click(function() {
 
+    // Output
+    $('#orderDetails').text(sauce);
+    $('#orderDetails').show();
   });
 });
