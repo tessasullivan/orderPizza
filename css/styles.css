@@ -1,13 +1,13 @@
 body {
 	background-color: aliceblue;
 }
-#orderDetails, #pizzaDetails {
+#order, #pizzaDetails {
 	display: none;
 }
 .row {
 	margin-top: 15px;
 }
-h1 {
+h1, h3 {
 	text-align: center;
 }
 h2 {

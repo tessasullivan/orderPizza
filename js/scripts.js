@@ -185,7 +185,7 @@ $().ready(function() {
 
     // Output
 
-    $('#orderDetails').show();
+    $('#order').show();
     displayOrderDetails(order);
     showPizzaDetails(1);
   });
