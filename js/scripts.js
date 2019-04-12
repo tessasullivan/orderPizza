@@ -94,35 +94,14 @@ Pizza.prototype.calculateCost = function() {
   return cost;
 }
 
-// var pizza1 = new Pizza (
-//   size = "small",
-//   crust = 'Chicago',
-//   sauce = 'pizza',
-//   meatToppings = ['Canadian Bacon', 'Sausage'],
-//   veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'],
-//   cheeseToppings = ['Mozzarella', 'Feta'],
-// )
-//
-// var pizza2 = new Pizza (
-//   size = "medium",
-//   crust = 'Chicago',
-//   sauce = 'pizza',
-//   meatToppings = ['Canadian Bacon', 'Sausage'],
-//   veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'],
-//   cheeseToppings = ['Mozzarella', 'Feta'],
-// )
-//
-// var pizzaCost = pizza1.calculateCost();
-var order = new Order();
-// order.addPizza(pizza1);
-// order.addPizza(pizza2);
 
-// var foundPizza = order.findPizza(1);
-// console.log(order);
-//order.deletePizza(1);
 
-////////////////////////////////////////////
+
+//////////////////////////////////////////
 // User logic
+var order = new Order();
+
+
 // function displayOrder()
 
 
@@ -132,10 +111,27 @@ $().ready(function() {
     var size=$('input:radio[name=size]:checked').val();
     var crust=$('input:radio[name=crust]:checked').val();
     var sauce=$('input:radio[name=sauce]:checked').val();
+    var meatToppings = [];
+    var veggieToppings = [];
+    var cheeseToppings = [];
+    // var meatToppings = ['Canadian Bacon', 'Sausage'];
+    // var veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'];
+    // var cheeseToppings = ['Mozzarella', 'Feta'];
 
+    $("input:checkbox[name=meat]:checked").each(function(){
+     meatToppings.push($(this).val());
+    });
+    $("input:checkbox[name=veggie]:checked").each(function(){
+     veggieToppings.push($(this).val());
+    });
+    $("input:checkbox[name=cheese]:checked").each(function(){
+     cheeseToppings.push($(this).val());
+    });
+    var pizza = new Pizza(size, crust, sauce, meatToppings, veggieToppings, cheeseToppings);
 
     // Output
-    $('#orderDetails').text(sauce);
+    $('#orderDetails').text(pizza);
+    console.log(pizza);
     $('#orderDetails').show();
   });
 });

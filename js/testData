@@ -1,0 +1,22 @@
+var pizza1 = new Pizza (
+  size = "small",
+  crust = 'Chicago',
+  sauce = 'pizza',
+  meatToppings = ['Canadian Bacon', 'Sausage'],
+  veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'],
+  cheeseToppings = ['Mozzarella', 'Feta'],
+)
+
+var pizza2 = new Pizza (
+  size = "medium",
+  crust = 'Chicago',
+  sauce = 'pizza',
+  meatToppings = ['Canadian Bacon', 'Sausage'],
+  veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'],
+  cheeseToppings = ['Mozzarella', 'Feta'],
+)
+
+var pizzaCost = pizza1.calculateCost();
+
+order.addPizza(pizza1);
+order.addPizza(pizza2);
