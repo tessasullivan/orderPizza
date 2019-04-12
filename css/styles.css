@@ -13,3 +13,13 @@ h1, h3 {
 h2 {
 	font-size: 1.5em;
 }
+ul {
+	list-style-type: none;
+}
+#orderDetails li {
+  color: blue;
+}
+#orderDetails li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

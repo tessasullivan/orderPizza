@@ -94,9 +94,15 @@ Pizza.prototype.calculateCost = function() {
   return cost;
 }
 
+//////////////////////////////////////////
+// User logic
+
 function showPizzaDetails (pizzaId){
   var pizzaDetails = $('ul#pizzaDetails');
+  // console.log(pizzaId);
+  console.log(order);
   var pizza = order.findPizza(pizzaId);
+
   var meats = "";
   var veggies = "";
   var cheeses = "";
@@ -111,17 +117,22 @@ function showPizzaDetails (pizzaId){
   $("#pizzaSize").html(pizza.size);
   $("#pizzaCrust").html(pizza.crust);
   $("#pizzaSauce").html(pizza.sauce);
-  pizza.meatToppings.forEach(function(meat) {
+
+  meatToppings = ['Canadian Bacon', 'Sausage'];
+  veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'];
+  cheeseToppings = ['Mozzarella', 'Feta'];
+
+  meatToppings.forEach(function(meat) {
     meats += meat + ", ";
   });
   meats = meats.replace(/, $/, ''); // remove the trailing comma
 
-  pizza.veggieToppings.forEach(function(veggie) {
+  veggieToppings.forEach(function(veggie) {
     veggies += veggie + ", ";
   });
   veggies = veggies.replace(/, $/, ''); // remove the trailing comma
 
-  pizza.cheeseToppings.forEach(function(cheese) {
+  cheeseToppings.forEach(function(cheese) {
     cheeses += cheese + ", ";
   });
   cheeses = cheeses.replace(/, $/, ''); // remove the trailing comma
@@ -137,6 +148,7 @@ function displayOrderDetails(order){
   var orderDetails = $("ul#orderDetails");
   var htmlForOrderDetails = "";
   order.pizzas.forEach(function(pizza) {
+    var cost = pizza.calculateCost();
     htmlForOrderDetails += "<li id=" + pizza.id + ">" + "Pizza " + pizza.id + "</li>";
   });
   $('#orderDetails').show(); // Display the orderDetails div
@@ -144,14 +156,14 @@ function displayOrderDetails(order){
 }
 
 function attachPizzaListeners() {
-  $('ul#pizzaDetails').on("click", "li", function() {
-    showPizzaDetails (pizzaId);
+  $('ul#orderDetails').on("click", "li", function() {
+    showPizzaDetails (this.id);
   });
+
 
 }
 
-//////////////////////////////////////////
-// User logic
+
 var order = new Order();
 
 
@@ -159,6 +171,7 @@ var order = new Order();
 
 
 $().ready(function() {
+  attachPizzaListeners();
   $('#pizzaOrderForm').submit(function() {
     event.preventDefault();
     var meatToppings = [];
@@ -181,12 +194,10 @@ $().ready(function() {
     var pizza = new Pizza(size, crust, sauce, meatToppings, veggieToppings, cheeseToppings);
 
     order.addPizza(pizza);
-
-
     // Output
 
     $('#order').show();
     displayOrderDetails(order);
-    showPizzaDetails(1);
+    // showPizzaDetails(1);
   });
 });
