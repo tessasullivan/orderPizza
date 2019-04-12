@@ -20,12 +20,7 @@ Customers can select the various toppings for a pizza.
 | Customer can select various meat toppings | Choose multiple toppings |Choice is saved|
 | Customer ends customization of pizza | Order pizza is selected |Customer receives a summary of his choices and the total |
 | Customer can order more than one pizza | A second order is filled out | Both pizzas are provided as links |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
+
 
 ## Setup/Installation Requirements
 
@@ -34,7 +29,8 @@ Customers can select the various toppings for a pizza.
 3. Enjoy!
 
 ## Known Bugs
-* No known bugs at this time.
+* findPizza method does not work when called by other functions though it works fine from the console.log
+* Because findPizza does not work, the listing of individual pizzas does not work
 
 ## Technologies Used
 
@@ -46,10 +42,10 @@ Customers can select the various toppings for a pizza.
 
 ## Support and contact details
 
-_Contact Tessa Sullivan @ tessa.sullivan@gmail.com or Marissa Perry @ ohthatmarissa@gmail.com_
+_Contact Tessa Sullivan @ tessa.sullivan@gmail.com_
 
 ### License
 
 *{This software is licensed under the MIT license}*
 
-Copyright (c) 2019 **_{Marissa Perry and Tessa Sullivan}_**
+Copyright (c) 2019 **_Tessa Sullivan_**

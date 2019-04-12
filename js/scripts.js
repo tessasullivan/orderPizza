@@ -118,19 +118,19 @@ function showPizzaDetails (pizzaId){
   $("#pizzaCrust").html(pizza.crust);
   $("#pizzaSauce").html(pizza.sauce);
 
-  meatToppings = ['Canadian Bacon', 'Sausage'];
-  veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'];
-  cheeseToppings = ['Mozzarella', 'Feta'];
+  // meatToppings = ['Canadian Bacon', 'Sausage'];
+  // veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'];
+  // cheeseToppings = ['Mozzarella', 'Feta'];
 
-  meatToppings.forEach(function(meat) {
+  pizza.meatToppings.forEach(function(meat) {
     meats += meat + ", ";
   });
   meats = meats.replace(/, $/, ''); // remove the trailing comma
 
-  veggieToppings.forEach(function(veggie) {
+  pizza.veggieToppings.forEach(function(veggie) {
     veggies += veggie + ", ";
   });
-  veggies = veggies.replace(/, $/, ''); // remove the trailing comma
+  pizza.veggies = veggies.replace(/, $/, ''); // remove the trailing comma
 
   cheeseToppings.forEach(function(cheese) {
     cheeses += cheese + ", ";
