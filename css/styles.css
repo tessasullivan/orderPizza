@@ -1,8 +1,11 @@
 body {
 	background-color: aliceblue;
 }
-#orderDetails {
+#orderDetails, #pizzaDetails {
 	display: none;
+}
+.row {
+	margin-top: 15px;
 }
 h1 {
 	text-align: center;

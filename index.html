@@ -19,15 +19,15 @@
             <h2>Select Size</h2>
             <div class="form-group">
               <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="small" name="size" value="small" checked>
+                <input type="radio" class="custom-control-input" id="small" name="size" value="Small" checked>
                 <label class="custom-control-label" for="small">Small</label>
               </div>
               <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="medium" name="size" value="medium">
+                <input type="radio" class="custom-control-input" id="medium" name="size" value="Medium">
                 <label class="custom-control-label" for="medium">Medium</label>
               </div>
               <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="large" name="size" value="large">
+                <input type="radio" class="custom-control-input" id="large" name="size" value="Large">
                 <label class="custom-control-label" for="large">Large</label>
               </div>
             </div>
@@ -76,8 +76,8 @@
                 <label class="custom-control-label" for="pepperoni">Pepperoni</label>
               </div>
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" value="candianBacon" id="candianBacon" name="meat">
-                <label class="custom-control-label" for="candianBacon">Candian Bacon</label>
+                <input type="checkbox" class="custom-control-input" value="CanadianBacon" id="CanadianBacon" name="meat">
+                <label class="custom-control-label" for="CanadianBacon">Canadian Bacon</label>
               </div>
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" value="sausage" id="sausage" name="meat">
@@ -133,15 +133,25 @@
             </div> <!--end column 3-->
           </div>
         </div>
-        <button type="submit" class="btn btn-info">Add to order</button>
+        <div class="row">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-info">Add to order</button>
+          </div>
+        </div>
       </form>
 
 
 
 
-      <div class="" id='orderDetails'>
+      <div class="" id='order'>
+        <ul id='orderDetails'></ul>
         <ul id='pizzaDetails'>
-
+          <li><span id="pizzaSize"></span> <span id='pizzaCrust'></span> with  <span id="pizzaSauce"></span></li>
+          <li>Cheese Toppings: <span id='pizzaCheese'></span></li>
+          <li>Meat Toppings: <span id='pizzaMeat'></span></li>
+          <li>Veggie Toppings: <span id='pizzaVeggies'></span></li>
         </ul>
       </div>
     </div>

@@ -94,8 +94,61 @@ Pizza.prototype.calculateCost = function() {
   return cost;
 }
 
+function showPizzaDetails (pizzaId){
+  var pizzaDetails = $('ul#pizzaDetails');
+  var pizza = order.findPizza(pizzaId);
+  var meats = "";
+  var veggies = "";
+  var cheeses = "";
+
+  $('#pizzaDetails').show(); // Display the orderDetails div
+  // The bit below does not currently work, goal is to loop through the pizza properties
+  // and print their values
+  // for (var ingrediant in pizza) {
+  //   htmlForPizzaDetails += "<li>" + pizza.ingrediant + "</li>";
+  // }
+
+  $("#pizzaSize").html(pizza.size);
+  $("#pizzaCrust").html(pizza.crust);
+  $("#pizzaSauce").html(pizza.sauce);
+  pizza.meatToppings.forEach(function(meat) {
+    meats += meat + ", ";
+  });
+  meats = meats.replace(/, $/, ''); // remove the trailing comma
+
+  pizza.veggieToppings.forEach(function(veggie) {
+    veggies += veggie + ", ";
+  });
+  veggies = veggies.replace(/, $/, ''); // remove the trailing comma
+
+  pizza.cheeseToppings.forEach(function(cheese) {
+    cheeses += cheese + ", ";
+  });
+  cheeses = cheeses.replace(/, $/, ''); // remove the trailing comma
+
+  $("#pizzaCheese").html(cheeses);
+  $('#pizzaMeat').html(meats);
+  $('#pizzaVeggies').html(veggies);
+}
 
 
+// This gives a list of pizzas in the order
+function displayOrderDetails(order){
+  var orderDetails = $("ul#orderDetails");
+  var htmlForOrderDetails = "";
+  order.pizzas.forEach(function(pizza) {
+    htmlForOrderDetails += "<li id=" + pizza.id + ">" + "Pizza " + pizza.id + "</li>";
+  });
+  $('#orderDetails').show(); // Display the orderDetails div
+  orderDetails.html(htmlForOrderDetails);
+}
+
+function attachPizzaListeners() {
+  $('ul#pizzaDetails').on("click", "li", function() {
+    showPizzaDetails (pizzaId);
+  });
+
+}
 
 //////////////////////////////////////////
 // User logic
@@ -108,16 +161,14 @@ var order = new Order();
 $().ready(function() {
   $('#pizzaOrderForm').submit(function() {
     event.preventDefault();
-    var size=$('input:radio[name=size]:checked').val();
-    var crust=$('input:radio[name=crust]:checked').val();
-    var sauce=$('input:radio[name=sauce]:checked').val();
     var meatToppings = [];
     var veggieToppings = [];
     var cheeseToppings = [];
-    // var meatToppings = ['Canadian Bacon', 'Sausage'];
-    // var veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'];
-    // var cheeseToppings = ['Mozzarella', 'Feta'];
 
+    // Get the toppings
+    var size=$('input:radio[name=size]:checked').val();
+    var crust=$('input:radio[name=crust]:checked').val();
+    var sauce=$('input:radio[name=sauce]:checked').val();
     $("input:checkbox[name=meat]:checked").each(function(){
      meatToppings.push($(this).val());
     });
@@ -129,9 +180,13 @@ $().ready(function() {
     });
     var pizza = new Pizza(size, crust, sauce, meatToppings, veggieToppings, cheeseToppings);
 
+    order.addPizza(pizza);
+
+
     // Output
-    $('#orderDetails').text(pizza);
-    console.log(pizza);
+
     $('#orderDetails').show();
+    displayOrderDetails(order);
+    showPizzaDetails(1);
   });
 });
