@@ -66,28 +66,28 @@ function Pizza(size, crust, sauce, meatToppings, veggieToppings, cheeseToppings)
 Pizza.prototype.calculateCost = function() {
   var cost = 0;
 
-  switch (size) {
-    case "small":
+  switch (this.size) {
+    case "Small":
       cost += 10;
-      cost += meatToppings.length*2;
-      cost += veggieToppings.length;
-      cost += cheeseToppings.length;
+      cost += this.meatToppings.length*2;
+      cost += this.veggieToppings.length;
+      cost += this.cheeseToppings.length;
       cost -= 1; // for the free cheese topping
       break;
 
-    case "medium":
+    case "Medium":
       cost += 13;
-      cost += meatToppings.length*2.5;
-      cost += veggieToppings.length*1.5;
-      cost += cheeseToppings.length*1.5;
+      cost += this.meatToppings.length*2.5;
+      cost += this.veggieToppings.length*1.5;
+      cost += this.cheeseToppings.length*1.5;
       cost -= 1.5; // for the free cheese topping
       break;
 
-    case "large":
+    case "Large":
       cost += 18;
-      cost += meatToppings.length*3.5;
-      cost += veggieToppings.length*2;
-      cost += cheeseToppings.length*2;
+      cost += this.meatToppings.length*3.5;
+      cost += this.veggieToppings.length*2;
+      cost += this.cheeseToppings.length*2;
       cost -= 2; // for the free cheese topping
       break;
 
@@ -147,9 +147,8 @@ function displayOrderDetails(order){
   var orderDetails = $("ul#orderDetails");
   var htmlForOrderDetails = "";
   order.pizzas.forEach(function(pizza) {
-//    var cost = pizza.calculateCost();
-var cost = 0;
-    htmlForOrderDetails += "<li id=" + pizza.id + ">" + "Pizza " + pizza.id + " " + cost + "</li>";
+    var cost = pizza.calculateCost();
+    htmlForOrderDetails += "<li id=" + pizza.id + ">" + "Pizza " + pizza.id + " $" + cost + "</li>";
   });
   $('#orderDetails').show(); // Display the orderDetails div
   orderDetails.html(htmlForOrderDetails);
@@ -192,9 +191,6 @@ $().ready(function() {
      cheeseToppings.push($(this).val());
     });
     var pizza = new Pizza(size, crust, sauce, meatToppings, veggieToppings, cheeseToppings);
-
-    var cost = pizza.calculateCost();
-    // console.log(cost);
 
     order.addPizza(pizza);
     // Output
