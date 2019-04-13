@@ -21,12 +21,7 @@ Order.prototype.findPizza = function(id) {
 
   for (var i=0; i < this.pizzas.length; i++) {
     if (this.pizzas[i]) {
-      // console.log("entered first if statement");
-      // console.log("round "+ i);
-      // console.log(this.pizzas[i].id);
       if (this.pizzas[i].id == id) {
-        // console.log("entered second if statement");
-        // console.log("this.pizzas[i]");
         return this.pizzas[i];
       }
     }
@@ -44,6 +39,13 @@ Order.prototype.deletePizza = function(id) {
     }
   }
   return false;
+}
+Order.prototype.calculateOrderCost = function() {
+  var cost = 0;
+  for (var i=0; i < this.pizzas.length; i++) {
+    cost+=this.pizzas[i].calculateCost();
+  }
+  return cost;
 }
 
 // Pizza constructor
@@ -153,16 +155,10 @@ function attachPizzaListeners() {
   $('ul#orderDetails').on("click", "li", function() {
     showPizzaDetails (this.id);
   });
-
-
 }
 
 
 var order = new Order();
-
-
-// function displayOrder()
-
 
 $().ready(function() {
   attachPizzaListeners();
@@ -188,10 +184,11 @@ $().ready(function() {
     var pizza = new Pizza(size, crust, sauce, meatToppings, veggieToppings, cheeseToppings);
 
     order.addPizza(pizza);
-    // Output
 
+    // Output
     $('#order').show();
     displayOrderDetails(order);
-    // showPizzaDetails(1);
+    var cost = order.calculateOrderCost();
+    console.log(cost);
   });
 });

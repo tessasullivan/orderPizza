@@ -28,9 +28,11 @@ Customers can select the various toppings for a pizza.
 2. Open your browser and navigate to index.html
 3. Enjoy!
 
+OR you can go to https://tessasullivan.github.io/orderPizza
+
 ## Known Bugs
-* findPizza method does not work when called by other functions though it works fine from the console.log
-* Because findPizza does not work, the listing of individual pizzas does not work
+* Clicking on the link for a specific pizza opens the details of that pizza under the list of pizzas, rather than under the specific pizza
+* An order total is not currently included
 
 ## Technologies Used
 
