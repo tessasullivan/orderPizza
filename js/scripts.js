@@ -189,6 +189,7 @@ $().ready(function() {
     $('#order').show();
     displayOrderDetails(order);
     var cost = order.calculateOrderCost();
-    console.log(cost);
+    $('#total').html(cost);
+    // console.log(cost);
   });
 });
