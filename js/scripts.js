@@ -18,9 +18,15 @@ Order.prototype.assignId = function() {
 }
 
 Order.prototype.findPizza = function(id) {
+
   for (var i=0; i < this.pizzas.length; i++) {
     if (this.pizzas[i]) {
-      if (this.pizzas[i].id === id) {
+      // console.log("entered first if statement");
+      // console.log("round "+ i);
+      // console.log(this.pizzas[i].id);
+      if (this.pizzas[i].id == id) {
+        // console.log("entered second if statement");
+        // console.log("this.pizzas[i]");
         return this.pizzas[i];
       }
     }
@@ -31,8 +37,7 @@ Order.prototype.findPizza = function(id) {
 Order.prototype.deletePizza = function(id) {
   for (var i=0; i < this.pizzas.length; i++) {
     if (this.pizzas[i]) {
-      if (this.pizzas[i].id === id) {
-//        delete this.pizzas[i];
+      if (this.pizzas[i].id == id) {
           this.pizzas.splice(i,1);
         return true;
       }
@@ -99,8 +104,6 @@ Pizza.prototype.calculateCost = function() {
 
 function showPizzaDetails (pizzaId){
   var pizzaDetails = $('ul#pizzaDetails');
-  // console.log(pizzaId);
-  console.log(order);
   var pizza = order.findPizza(pizzaId);
 
   var meats = "";
@@ -118,10 +121,6 @@ function showPizzaDetails (pizzaId){
   $("#pizzaCrust").html(pizza.crust);
   $("#pizzaSauce").html(pizza.sauce);
 
-  // meatToppings = ['Canadian Bacon', 'Sausage'];
-  // veggieToppings = ['Black olives', 'Spinach', 'Tomatoes'];
-  // cheeseToppings = ['Mozzarella', 'Feta'];
-
   pizza.meatToppings.forEach(function(meat) {
     meats += meat + ", ";
   });
@@ -130,9 +129,9 @@ function showPizzaDetails (pizzaId){
   pizza.veggieToppings.forEach(function(veggie) {
     veggies += veggie + ", ";
   });
-  pizza.veggies = veggies.replace(/, $/, ''); // remove the trailing comma
+  veggies = veggies.replace(/, $/, ''); // remove the trailing comma
 
-  cheeseToppings.forEach(function(cheese) {
+  pizza.cheeseToppings.forEach(function(cheese) {
     cheeses += cheese + ", ";
   });
   cheeses = cheeses.replace(/, $/, ''); // remove the trailing comma
@@ -148,8 +147,9 @@ function displayOrderDetails(order){
   var orderDetails = $("ul#orderDetails");
   var htmlForOrderDetails = "";
   order.pizzas.forEach(function(pizza) {
-    var cost = pizza.calculateCost();
-    htmlForOrderDetails += "<li id=" + pizza.id + ">" + "Pizza " + pizza.id + "</li>";
+//    var cost = pizza.calculateCost();
+var cost = 0;
+    htmlForOrderDetails += "<li id=" + pizza.id + ">" + "Pizza " + pizza.id + " " + cost + "</li>";
   });
   $('#orderDetails').show(); // Display the orderDetails div
   orderDetails.html(htmlForOrderDetails);
@@ -192,6 +192,9 @@ $().ready(function() {
      cheeseToppings.push($(this).val());
     });
     var pizza = new Pizza(size, crust, sauce, meatToppings, veggieToppings, cheeseToppings);
+
+    var cost = pizza.calculateCost();
+    // console.log(cost);
 
     order.addPizza(pizza);
     // Output
