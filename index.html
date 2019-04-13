@@ -157,16 +157,25 @@
       <div class="row">
         <div class="col-md-3">
           <h3>Your Order</h3>
-          <ul id='orderDetails'></ul>
-          <h4>Total: $<span id='total'></span></h4>
         </div>
-        <div class="col-md-4">
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <ul id='orderDetails'></ul>
+        </div>
+        <div class="col-md-6">
           <ul id='pizzaDetails'>
-            <li><span id="pizzaSize"></span> <span id='pizzaCrust'></span> with <span id="pizzaSauce"></span> sauce</li>
-            <li>Cheese Toppings: <span id='pizzaCheese'></span></li>
-            <li>Meat Toppings: <span id='pizzaMeat'></span></li>
-            <li>Veggie Toppings: <span id='pizzaVeggies'></span></li>
+            <li><span id='pizzaNum'></span></li>
+            <li><span id="pizzaSize"></span> <span id='pizzaCrust'></span> pizza with <span id="pizzaSauce"></span> sauce</li>
+            <li id='cheeseLi'>Cheese Toppings: <span id='pizzaCheese'></span></li>
+            <li id='meatLi'>Meat Toppings: <span id='pizzaMeat'></span></li>
+            <li id='veggieLi'>Veggie Toppings: <span id='pizzaVeggies'></span></li>
           </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <h4>Total: $<span id='total'></span></h4>
         </div>
       </div>
     </div>

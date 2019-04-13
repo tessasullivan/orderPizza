@@ -113,25 +113,41 @@ function showPizzaDetails (pizzaId){
   var cheeses = "";
 
   $('#pizzaDetails').show(); // Display the orderDetails div
-
+  $('#pizzaNum').empty();
+  $('#pizzaNum').html("<strong>Pizza " + pizza.id + "</strong>");
   $("#pizzaSize").html(pizza.size);
   $("#pizzaCrust").html(pizza.crust);
   $("#pizzaSauce").html(pizza.sauce);
 
-  pizza.meatToppings.forEach(function(meat) {
-    meats += meat + ", ";
-  });
-  meats = meats.replace(/, $/, ''); // remove the trailing comma
-
-  pizza.veggieToppings.forEach(function(veggie) {
-    veggies += veggie + ", ";
-  });
-  veggies = veggies.replace(/, $/, ''); // remove the trailing comma
-
-  pizza.cheeseToppings.forEach(function(cheese) {
-    cheeses += cheese + ", ";
-  });
-  cheeses = cheeses.replace(/, $/, ''); // remove the trailing comma
+  // For each topping type, write them to the details section if they exist,
+  // if there are no toppings of that type, hide the li
+  if (pizza.meatToppings.length) {
+    $('#meatLi').show();
+    pizza.meatToppings.forEach(function(meat) {
+      meats += meat + ", ";
+    });
+    meats = meats.replace(/, $/, ''); // remove the trailing comma
+  } else {
+    $('#meatLi').hide();
+  }
+  if(pizza.veggieToppings.length){
+    $('#veggieLi').show();
+    pizza.veggieToppings.forEach(function(veggie) {
+      veggies += veggie + ", ";
+    });
+    veggies = veggies.replace(/, $/, ''); // remove the trailing comma
+  } else {
+    $('#veggieLi').hide();
+  }
+  if (pizza.cheeseToppings.length){
+    $('#cheeseLi').show();
+    pizza.cheeseToppings.forEach(function(cheese) {
+      cheeses += cheese + ", ";
+    });
+    cheeses = cheeses.replace(/, $/, ''); // remove the trailing comma
+  } else {
+    $('#cheeseLi').hide();
+  }
 
   $("#pizzaCheese").html(cheeses);
   $('#pizzaMeat').html(meats);
