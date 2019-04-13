@@ -111,11 +111,6 @@ function showPizzaDetails (pizzaId){
   var cheeses = "";
 
   $('#pizzaDetails').show(); // Display the orderDetails div
-  // The bit below does not currently work, goal is to loop through the pizza properties
-  // and print their values
-  // for (var ingrediant in pizza) {
-  //   htmlForPizzaDetails += "<li>" + pizza.ingrediant + "</li>";
-  // }
 
   $("#pizzaSize").html(pizza.size);
   $("#pizzaCrust").html(pizza.crust);

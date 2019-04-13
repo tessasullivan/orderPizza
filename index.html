@@ -1,160 +1,173 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Pizza Ordering Service</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/scripts.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
 
-  </head>
-  <body>
-    <div class="container">
-      <h1>Order pizza</h1>
-      <form id='pizzaOrderForm'>
-        <div class="row">
-          <div class="col-md-4">
-            <h2>Select Size</h2>
-            <div class="form-group">
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="small" name="size" value="Small" checked>
-                <label class="custom-control-label" for="small">Small</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="medium" name="size" value="Medium">
-                <label class="custom-control-label" for="medium">Medium</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="large" name="size" value="Large">
-                <label class="custom-control-label" for="large">Large</label>
-              </div>
+<head>
+  <meta charset="utf-8">
+  <title>Pizza Ordering Service</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>Order pizza</h1>
+    <form id='pizzaOrderForm'>
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Select Size</h2>
+          <div class="form-group">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="small" name="size" value="Small" checked>
+              <label class="custom-control-label" for="small">Small</label>
             </div>
-          </div> <!--End of column 1-->
-
-          <div class="col-md-4">
-            <h2>Select Crust</h2>
-            <div class="form-group">
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="regular" name="crust" value="regular" checked>
-                <label class="custom-control-label" for="regular">Regular</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="thin" name="crust" value="thin">
-                <label class="custom-control-label" for="thin">Thin</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="chicago" name="crust" value="chicago">
-                <label class="custom-control-label" for="chicago">Chicago</label>
-              </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="medium" name="size" value="Medium">
+              <label class="custom-control-label" for="medium">Medium</label>
             </div>
-          </div> <!--End of column 2-->
-
-          <div class="col-md-4">
-            <h2>Select Sauce</h2>
-            <div class="form-group">
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="pizza" name="sauce" value="pizza" checked>
-                <label class="custom-control-label" for="pizza">Pizza sauce</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="bbq" name="sauce" value="bbq">
-                <label class="custom-control-label" for="bbq">BBQ sauce</label>
-              </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="large" name="size" value="Large">
+              <label class="custom-control-label" for="large">Large</label>
             </div>
-          </div> <!--End of column 3-->
-
-        </div>
-
-        <div class="row">
-          <div class="col-md-4">
-            <h2>Select Meat Toppings</h2>
-            <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" value="pepperoni" name="meat" id="pepperoni">
-                <label class="custom-control-label" for="pepperoni">Pepperoni</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" value="CanadianBacon" id="CanadianBacon" name="meat">
-                <label class="custom-control-label" for="CanadianBacon">Canadian Bacon</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" value="sausage" id="sausage" name="meat">
-                <label class="custom-control-label" for="sausage">Italian Sausage</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" value="bbqChicken" id="bbqChicken" name="meat">
-                <label class="custom-control-label" for="bbqChicken">BBQ Chicken</label>
-              </div>
-            </div>
-          </div> <!--End column 1-->
-            <div class="col-md-4">
-              <h2>Select Veggie Toppings</h2>
-              <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="blackOlives" value="blackOlives" name="veggie">
-                  <label class="custom-control-label" for="blackOlives">Black Olives</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="onions" value="onions" name="veggie">
-                  <label class="custom-control-label" for="onions">Onions</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="spinach" value="spinach" name="veggie">
-                  <label class="custom-control-label" for="spinach">Spinach</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="tomatoes" value="tomatoes" name="veggie">
-                  <label class="custom-control-label" for="tomatoes">Tomatoes</label>
-                </div>
-              </div>
-            </div> <!--end column 3-->
-            <div class="col-md-4">
-              <h2>Select Cheese Toppings</h2>
-              <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="feta" value="feta" name="cheese">
-                  <label class="custom-control-label" for="feta">Feta</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="mozzarella" value="mozzarella" name="cheese">
-                  <label class="custom-control-label" for="mozzarella">Mozzarella</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="parmesan" value="parmesan" name="cheese">
-                  <label class="custom-control-label" for="parmesan">Parmesan</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="cheddar" value="cheddar" name="cheese">
-                  <label class="custom-control-label" for="cheddar">Cheddar</label>
-                </div>
-              </div>
-            </div> <!--end column 3-->
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-4">
-            <button type="submit" class="btn btn-info">Add to order</button>
+        <!--End of column 1-->
+
+        <div class="col-md-4">
+          <h2>Select Crust</h2>
+          <div class="form-group">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="regular" name="crust" value="regular" checked>
+              <label class="custom-control-label" for="regular">Regular</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="thin" name="crust" value="thin">
+              <label class="custom-control-label" for="thin">Thin</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="chicago" name="crust" value="chicago">
+              <label class="custom-control-label" for="chicago">Chicago</label>
+            </div>
           </div>
         </div>
+        <!--End of column 2-->
+
+        <div class="col-md-4">
+          <h2>Select Sauce</h2>
+          <div class="form-group">
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="pizza" name="sauce" value="pizza" checked>
+              <label class="custom-control-label" for="pizza">Pizza sauce</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="bbq" name="sauce" value="bbq">
+              <label class="custom-control-label" for="bbq">BBQ sauce</label>
+            </div>
+          </div>
+        </div>
+        <!--End of column 3-->
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Select Meat Toppings</h2>
+          <div class="form-group">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="pepperoni" name="meat" id="pepperoni">
+              <label class="custom-control-label" for="pepperoni">Pepperoni</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="CanadianBacon" id="CanadianBacon" name="meat">
+              <label class="custom-control-label" for="CanadianBacon">Canadian Bacon</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="sausage" id="sausage" name="meat">
+              <label class="custom-control-label" for="sausage">Italian Sausage</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="bbqChicken" id="bbqChicken" name="meat">
+              <label class="custom-control-label" for="bbqChicken">BBQ Chicken</label>
+            </div>
+          </div>
+        </div>
+        <!--End column 1-->
+        <div class="col-md-4">
+          <h2>Select Veggie Toppings</h2>
+          <div class="form-group">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="blackOlives" value="blackOlives" name="veggie">
+              <label class="custom-control-label" for="blackOlives">Black Olives</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="onions" value="onions" name="veggie">
+              <label class="custom-control-label" for="onions">Onions</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="spinach" value="spinach" name="veggie">
+              <label class="custom-control-label" for="spinach">Spinach</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="tomatoes" value="tomatoes" name="veggie">
+              <label class="custom-control-label" for="tomatoes">Tomatoes</label>
+            </div>
+          </div>
+        </div>
+        <!--end column 3-->
+        <div class="col-md-4">
+          <h2>Select Cheese Toppings</h2>
+          <div class="form-group">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="feta" value="feta" name="cheese">
+              <label class="custom-control-label" for="feta">Feta</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="mozzarella" value="mozzarella" name="cheese">
+              <label class="custom-control-label" for="mozzarella">Mozzarella</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="parmesan" value="parmesan" name="cheese">
+              <label class="custom-control-label" for="parmesan">Parmesan</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="cheddar" value="cheddar" name="cheese">
+              <label class="custom-control-label" for="cheddar">Cheddar</label>
+            </div>
+          </div>
+        </div>
+        <!--end column 3-->
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-info">Add to order</button>
+        </div>
+      </div>
       </form>
 
 
 
 
-      <div class="" id='order'>
-        <h3>Your Order</h3>
-        <ul id='orderDetails'></ul>
-        <ul id='pizzaDetails'>
-          <li><span id="pizzaSize"></span> <span id='pizzaCrust'></span> with  <span id="pizzaSauce"></span></li>
-          <li>Cheese Toppings: <span id='pizzaCheese'></span></li>
-          <li>Meat Toppings: <span id='pizzaMeat'></span></li>
-          <li>Veggie Toppings: <span id='pizzaVeggies'></span></li>
-        </ul>
+    <div class="" id='order'>
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Your Order</h3>
+          <ul id='orderDetails'></ul>
+          <ul id='pizzaDetails'>
+            <li><span id="pizzaSize"></span> <span id='pizzaCrust'></span> with <span id="pizzaSauce"></span> sauce</li>
+            <li>Cheese Toppings: <span id='pizzaCheese'></span></li>
+            <li>Meat Toppings: <span id='pizzaMeat'></span></li>
+            <li>Veggie Toppings: <span id='pizzaVeggies'></span></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
