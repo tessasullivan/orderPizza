@@ -101,6 +101,12 @@ Pizza.prototype.calculateCost = function() {
   return cost;
 }
 
+function clearFields() {
+  $('input[type=checkbox]').prop('checked',false);
+  // Comment out the line below because I do not know how to test that at least 1 radio button is selected
+  // $('input[type=radio]').prop('checked',false);
+}
+
 //////////////////////////////////////////
 // User logic
 
@@ -152,6 +158,10 @@ function showPizzaDetails (pizzaId){
   $("#pizzaCheese").html(cheeses);
   $('#pizzaMeat').html(meats);
   $('#pizzaVeggies').html(veggies);
+
+  var buttons = $('#buttons');
+  buttons.empty();
+  buttons.append("<button class='deleteButton' id=" + pizza.id + ">Remove pizza</button>");
 }
 
 
@@ -168,8 +178,16 @@ function displayOrderDetails(order){
 }
 
 function attachPizzaListeners() {
+  var buttons = $('#buttons');
   $('ul#orderDetails').on("click", "li", function() {
     showPizzaDetails (this.id);
+  });
+    buttons.on("click",".deleteButton", function() {
+    order.deletePizza(this.id);
+    displayOrderDetails(order);
+    $('#pizzaDetails').empty();
+    buttons.empty();
+    $('#total').html(order.calculateOrderCost());
   });
 }
 
@@ -200,12 +218,11 @@ $().ready(function() {
     var pizza = new Pizza(size, crust, sauce, meatToppings, veggieToppings, cheeseToppings);
 
     order.addPizza(pizza);
+    clearFields();
 
     // Output
     $('#order').show();
     displayOrderDetails(order);
-    var cost = order.calculateOrderCost();
-    $('#total').html(cost);
-    // console.log(cost);
+    $('#total').html(order.calculateOrderCost());
   });
 });
