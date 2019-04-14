@@ -45,7 +45,7 @@ Order.prototype.calculateOrderCost = function() {
   for (var i=0; i < this.pizzas.length; i++) {
     cost+=this.pizzas[i].calculateCost();
   }
-  return cost;
+  return cost.toFixed(2);
 }
 
 // Pizza constructor
@@ -170,7 +170,7 @@ function displayOrderDetails(order){
   var orderDetails = $("ul#orderDetails");
   var htmlForOrderDetails = "";
   order.pizzas.forEach(function(pizza) {
-    var cost = pizza.calculateCost();
+    var cost = pizza.calculateCost().toFixed(2);
     htmlForOrderDetails += "<li id=" + pizza.id + ">" + "Pizza " + pizza.id + " $" + cost + "</li>";
   });
   $('#orderDetails').show(); // Display the orderDetails div
