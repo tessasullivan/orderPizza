@@ -45,7 +45,7 @@ Order.prototype.calculateOrderCost = function() {
   for (var i=0; i < this.pizzas.length; i++) {
     cost+=this.pizzas[i].calculateCost();
   }
-  return cost.toFixed(2);
+  return cost;
 }
 
 // Pizza constructor
@@ -193,7 +193,7 @@ function attachPizzaListeners() {
     pizzaDetails.hide();
     displayOrderDetails(order);
     buttons.empty();
-    total.html(order.calculateOrderCost());
+    total.html(order.calculateOrderCost().toFixed(2));
   });
 }
 
@@ -229,6 +229,6 @@ $().ready(function() {
     // Output
     $('#order').show();
     displayOrderDetails(order);
-    $('#total').html(order.calculateOrderCost());
+    $('#total').html(order.calculateOrderCost().toFixed(2));
   });
 });
