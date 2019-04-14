@@ -177,17 +177,23 @@ function displayOrderDetails(order){
   orderDetails.html(htmlForOrderDetails);
 }
 
+// For each pizza listed in the order, let the text be a link
+// show the details of the pizza when the link is clicked along with a delete button
+// If the delete button is clicked, delete the pizza and hide the pizzaDetails section,
+// remove the delete button, and recalculate the total
 function attachPizzaListeners() {
   var buttons = $('#buttons');
+  var pizzaDetails = $('#pizzaDetails');
+  var total = $('#total');
   $('ul#orderDetails').on("click", "li", function() {
     showPizzaDetails (this.id);
   });
     buttons.on("click",".deleteButton", function() {
     order.deletePizza(this.id);
+    pizzaDetails.hide();
     displayOrderDetails(order);
-    $('#pizzaDetails').empty();
     buttons.empty();
-    $('#total').html(order.calculateOrderCost());
+    total.html(order.calculateOrderCost());
   });
 }
 

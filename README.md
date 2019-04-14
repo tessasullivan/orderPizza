@@ -30,9 +30,8 @@ Customers can select the various toppings for a pizza.
 
 OR you can go to https://tessasullivan.github.io/orderPizza
 
-## Known Bugs
-* Clicking on the link for a specific pizza opens the details of that pizza under the list of pizzas, rather than under the specific pizza
-* An order total is not currently included
+## Known Issues
+* No known issues at this time (unless you count lack of style)
 
 ## Technologies Used
 
